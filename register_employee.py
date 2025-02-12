@@ -3,7 +3,6 @@ import sqlite3
 def add_employee(name,position):
     conn=sqlite3.connect('attendance.db')
     cursor=conn.cursor()
-
     cursor.execute("INSERT INTO employees (name, position) VALUES (?, ?)", (name, position))
     conn.commit()
     conn.close()
@@ -25,19 +24,16 @@ def print_employees():
     conn.close()
 
 
-    # 
-if __name__ == '__main__':
+def main():
     name = input('Enter employee name: ')
     position= input('What is your position: ')
     add_employee(name, position)
+    print_employees()
+
+
+
+    # 
+if __name__ == '__main__':
+    main()
     
     
-        # Query to verify the employees in the database
-
-    conn=sqlite3.connect('attendance.db')
-    cursor =conn.cursor()
-    cursor.execute("SELECT * FROM employees")
-    employees =cursor.fetchall()
-    print(employees)
-
-conn.close()    
