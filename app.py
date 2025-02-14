@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Welcom to R&R Puynch system"
+    return "Welcom to R&R Time Clock System"
 
 if __name__ == "__main__":
     app.run(debug=True)
